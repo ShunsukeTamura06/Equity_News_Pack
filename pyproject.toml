@@ -1,0 +1,32 @@
+[project]
+name = "equity-news-pack"
+version = "0.1.0"
+description = "Bloomberg ニュースを取得し LLM で要約・センチメント分類するパイプライン"
+requires-python = ">=3.12"
+dependencies = [
+    "polars>=1.0",
+    "pyarrow>=15",
+    "psycopg[binary]>=3.2",
+    "openai>=1.50",
+    "pydantic>=2.7",
+    "tqdm>=4.66",
+    "python-dotenv>=1.0",
+    "plotly>=5.20",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "pytest-mock>=3.12",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra -q"
+markers = [
+    "blpapi: 実機の Bloomberg Terminal が必要なテスト（'-m \"not blpapi\"' でスキップ可能）",
+]
+
+[tool.uv]
+# blpapi は Bloomberg のプライベート repo にあるため別途インストール:
+#   uv pip install --index-url https://blpapi.bloomberg.com/repository/releases/python/simple/ blpapi

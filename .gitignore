@@ -1,0 +1,27 @@
+# --- venv / Python ---
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# --- 環境設定（実値） ---
+.env
+
+# --- 蓄積データと出力 ---
+data/
+*.csv
+*.parquet
+
+# --- ノートブックのバックアップ ---
+*.bak
+*.ipynb_checkpoints/
+
+# --- IDE / ツール ---
+.vscode/
+.idea/
+.claude/
+
+# --- 接続情報を含む参考ドキュメント（リポジトリに含めない） ---
+NEW_DB_INFO.md
+NEW_LLMAPI_INFO.md
